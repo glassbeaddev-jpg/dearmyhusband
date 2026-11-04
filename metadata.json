@@ -1,0 +1,6 @@
+{
+  "name": "Operation: Make My Boy Smile ♡",
+  "description": "An interactive, customizable romantic mini-website and love game featuring mystery envelopes, heart hunt, quiz, heartfelt letters, lockable promises, and a live visual editor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

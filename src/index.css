@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+:root {
+  --pink: #d95b83;
+  --strawberry: #b93966;
+  --cream: #fff9ef;
+  --ink: #674b49;
+  --peach: #ffdfca;
+  --bg-gradient-start: #fff;
+  --bg-gradient-mid: #ffd9df;
+  --bg-base: #fff3e9;
+  --dot-color: #d68e99;
+}
+
+[data-theme="lavender"] {
+  --pink: #9c6bb3;
+  --strawberry: #76418d;
+  --cream: #fbf8ff;
+  --ink: #4f4258;
+  --peach: #eddfff;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-mid: #e9dcfa;
+  --bg-base: #f5eeff;
+  --dot-color: #b79cc8;
+}
+
+[data-theme="peach"] {
+  --pink: #e27d60;
+  --strawberry: #c35a3b;
+  --cream: #fffaf0;
+  --ink: #5c453d;
+  --peach: #ffe3d1;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-mid: #ffdcce;
+  --bg-base: #fff4ec;
+  --dot-color: #d89885;
+}
+
+[data-theme="ocean"] {
+  --pink: #4ea8de;
+  --strawberry: #206d9d;
+  --cream: #f4faff;
+  --ink: #3b4e5d;
+  --peach: #cbe7ff;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-mid: #d2ecff;
+  --bg-base: #eaf5fc;
+  --dot-color: #8bbcdb;
+}
+
+[data-theme="sage"] {
+  --pink: #749c75;
+  --strawberry: #4a754b;
+  --cream: #f7faf7;
+  --ink: #3d4a3e;
+  --peach: #dceddc;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-mid: #daeada;
+  --bg-base: #edf4ed;
+  --dot-color: #9ab99b;
+}
+
+[data-theme="midnight"] {
+  --pink: #e06d94;
+  --strawberry: #d84576;
+  --cream: #32252e;
+  --ink: #f0e6eb;
+  --peach: #573e4b;
+  --bg-gradient-start: #2c1e28;
+  --bg-gradient-mid: #412435;
+  --bg-base: #1f151c;
+  --dot-color: #7b4b64;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+}
+
+.font-serif {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+.game-shell {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 18%, var(--bg-gradient-start) 0 3%, transparent 31%),
+              radial-gradient(circle at 88% 68%, var(--bg-gradient-mid) 0, transparent 34%),
+              var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.paper {
+  background: #fffdf8;
+  border: 2px solid #efc7c2;
+  border-radius: 26px;
+  box-shadow: 0 16px 0 #f4d8d0, 0 25px 50px rgba(151, 89, 96, 0.15);
+}
+
+[data-theme="midnight"] .paper {
+  background: #2a1f28;
+  border-color: #633c4c;
+  box-shadow: 0 16px 0 #1b1218, 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.primary-btn {
+  background: var(--strawberry);
+  color: white;
+  border-radius: 100px;
+  padding: 14px 28px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn {
+  background: #fffaf6;
+  color: var(--strawberry);
+  border: 2px solid #eab8bc;
+  border-radius: 100px;
+  padding: 12px 22px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+[data-theme="midnight"] .secondary-btn {
+  background: #2e202b;
+  border-color: #5d394b;
+  color: #ff9cb7;
+}
+
+.secondary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #ffe4e8;
+}
+
+[data-theme="midnight"] .secondary-btn:hover:not(:disabled) {
+  background: #442a3d;
+}
+
+.secondary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Envelope styling */
+.envelope-box {
+  position: relative;
+  width: 220px;
+  height: 150px;
+  background: #f8aab9;
+  border: 3px solid #cc708b;
+  border-radius: 8px 8px 18px 18px;
+  box-shadow: 0 15px 30px rgba(167, 96, 120, 0.25);
+  transition: transform 0.5s ease;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.envelope-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 82px;
+  background: #ffd6d8;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.envelope-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f4a3b5;
+  clip-path: polygon(0 100%, 50% 38%, 100% 100%);
+  border-radius: 0 0 15px 15px;
+}
+
+.envelope-box.is-open {
+  transform: rotate(-3deg);
+}
+
+.envelope-box.is-open::before {
+  transform: rotateX(175deg);
+}
+
+.envelope-seal {
+  position: relative;
+  z-index: 3;
+  color: #ad3f66;
+  font-size: 44px;
+  margin-top: 25px;
+  transition: transform 0.5s ease;
+}
+
+.envelope-box.is-open .envelope-seal {
+  transform: translateY(-46px);
+}
+
+/* Animations */
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-24px) rotate(15deg); opacity: 0.6; }
+}
+
+@keyframes stamp {
+  0% { transform: scale(0.65) rotate(-15deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-bob {
+  animation: bob 3.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.animate-stamp {
+  animation: stamp 0.45s ease both;
+}
+
+/* Vintage lined paper for love letter */
+.lined-paper {
+  background: repeating-linear-gradient(#fffefa 0, #fffefa 36px, #f4e3df 37px, #fffefa 38px);
+}
+
+[data-theme="midnight"] .lined-paper {
+  background: repeating-linear-gradient(#2a1f28 0, #2a1f28 36px, #4d3340 37px, #2a1f28 38px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(185, 57, 102, 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 57, 102, 0.6);
+}
